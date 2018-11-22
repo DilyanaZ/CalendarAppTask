@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+html {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to right top, #051437, #004370, #0079a1, #00b2c2, #12ebcf);
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
+div.container-fluid {
+    background-repeat: no-repeat;
+    height: 600px;
+    overflow: visible;
+    background-size: auto;
+}
+
+header h1 {
+    margin: 40px;
+    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    text-align: center;
+}
+
+header {
+    margin-bottom: 70px;
+}
+
+.form-group {
+    padding: 30px 50px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form-group>input {
+    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#buttonGroup {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btn {
+    float: left;
+    color: #117a8b;
+    font-size: 1.5em;
+    margin-top: 50px;
+    margin-left: 40px;
+    border-color: #117a8b;
+    border-radius: 15px;
+}
+
+.btn:hover {
+    background-color: bisque;
+    color: black;
+}
+
+#dateLabel>label {
+    text-transform: uppercase;
+    padding: 8px 14px;
+    font-size: 2em;
+    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #117a8b;
+}
+
+#dateInput {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+}

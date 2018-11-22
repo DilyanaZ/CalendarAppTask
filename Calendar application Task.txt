@@ -1,0 +1,30 @@
+Write a Calendar application that helps you organize events. 
+Features:  
+Calendar with indication of events for a given day  
+Schedule based on the events in the calendar  
+Metadata for the events (start, end, location, etc.)  
+Create, delete, edit a new event 
+Clients (based on your technology focus):  
+Implement the following User interface:  
+Calendar monthly view with info for the events  
+Switching between the months  
+View for creating a new event  
+View for editing an existing event  
+Schedule view for the events – scrollable list with the created events 
+For all the described elements provide actions (like clicking swiping etc.) that enable them. 
+
+Server: (skip) 
+Implement a backend that makes it possible for the user to access the calendar over the Internet from multiple devices. Use technology of your choice. 
+ 
+Technical requirements: 
+1. Set up a Git repo for the project on Gitlab: https://gitlab.musala.com/   
+2. Set up a project management board for the project and create small tasks that you will be working on. Think about what statuses (like In Progress, Done, etc.) you will have for those tasks. 
+3. Create REST services that provide the calendar data to the client applications. 
+4. Write Unit Tests for your code. 
+5. Achieve at least 30 % code coverage. 
+6. * Set up a build server and make it extremely easy to roll out any changes in the code to the final product using this build server.   
+* - the requirement is optional  
+Important guidelines: 
+1. Create a good data model for your applications, based on the general OOP principles. 
+2. Be consistent and disciplined with the naming and organization of your code and the project in general. 
+3. Use appropriate data structures for storing the calendar data, so that searching by different criteria is fast. 
