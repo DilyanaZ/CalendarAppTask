@@ -1,0 +1,15 @@
+{
+  "name": "caleandar-master",
+  "version": "1.0.0",
+  "description": "Let me keep the intro brief. It's a lightweight (about `7.5kb` minified at the time of writing) and library-independent calendar script with optional themes. You can add events to the calendar and add functionality on click of the event. That's about the jist of it. Continue reading for instructions on how to use and examples.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+}
