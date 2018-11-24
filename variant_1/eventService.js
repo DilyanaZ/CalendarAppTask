@@ -9,18 +9,19 @@ var eventList = (function() {
     }
 
     function EventList() {
-        if (localStorage.getItem('events') != null) {
-            //if i have events in the browser, i take them
-            this.events = JSON.parse(localStorage.getItem('events'));
-        } else {
-            this.events = [];
-        }
+        this.events = [];
+        // if (localStorage.getItem('events') != null) {
+        //     //if i have events in the browser, i take them
+        //     this.events = JSON.parse(localStorage.getItem('events'));
+        // } else {
+        //     this.events = [];
+        // }
     }
 
     EventList.prototype.addEvent = function(text) {
         var newEvent = new Event(text);
         this.events.push(newEvent);
-        localStorage.setItem('events', JSON.stringify(this.events));
+       // localStorage.setItem('events', JSON.stringify(this.events));
 
         return newEvent.id;
     }
