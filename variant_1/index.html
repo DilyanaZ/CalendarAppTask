@@ -7,15 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Callendar tasks</title>
     <!-- <link rel="stylesheet" href="./styles/jquery.datetimepicker.css"> -->
+    <link rel="stylesheet" href="./styles/reset.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="css/demo.css"/>
+    <link rel="stylesheet" href="css/theme3.css"/>
+
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+
     <script src="eventService.js"></script>
     <script src="eventController.js"></script>
 </head>
 
 <body>
-
     <div class="container-fluid">
         <header>
             <div id="animated-div">
@@ -25,16 +32,21 @@
         </header>
         <main>
             <div class="form-group row">
+                
+                <div id="caleandar">
+
+                </div>
+                
                 <div id="dateLabel ">
                     <label for="dateLabel"> Chose a Date:</label>
+                    <input type="date" id="myDate" value="2018-11-22">
                 </div>
-                <input type="date" id="myDate" value="2018-11-22">
+                
                 <!-- <input id="myDate" class="form-control" type="text" placeholder="Chose a Date:" /> -->
             </div>
             <div id="buttonGroup" class="form-group row">
-                <button type="submit" id="showEvents" class="btn">Show  All Events for Date</button>
+                <button type="submit" id="showEvents" class="btn">Show All Events for Date</button>
                 <button type="submit" id="addEvent" class="btn">Add Event</button>
-
             </div>
             <div id="addNewEvent">
                 <label for="newEvent"> Please enter a description for your new event:</label>
@@ -55,10 +67,15 @@
         </footer>
 
     </div>
-
-
-
-    <script src="./app.js"></script>
+     <!-- <script id='template' type="text/x-handlebars-template">
+        <div>
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+            <p>{{location}}</p>
+        </div>
+    </script> -->
+    <script type="text/javascript" src="js/caleandar.js"></script>
+    
 </body>
 
 </html>

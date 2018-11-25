@@ -2,8 +2,9 @@ var eventList = (function() {
 
     Event.nextId = 0;
 
-    function Event(text) {
+    function Event(date, text) {
         this.id = ++Event.nextId;
+        this.date = date;
         this.text = text;
         this.isCompleted = false;
     }
@@ -18,11 +19,10 @@ var eventList = (function() {
         // }
     }
 
-    EventList.prototype.addEvent = function(text) {
+    EventList.prototype.addEvent = function(date, text) {
         var newEvent = new Event(text);
         this.events.push(newEvent);
        // localStorage.setItem('events', JSON.stringify(this.events));
-
         return newEvent.id;
     }
 
@@ -33,6 +33,7 @@ var eventList = (function() {
             throw new Error('There is no such event in your event list' + "for the day" + id);
         } else {
             this.events.splice(index, 1);
+            //localStorage.setItem('events', JSON.stringify(this.events));
         }
     }
 
