@@ -20,10 +20,25 @@ var eventList = (function() {
     }
 
     EventList.prototype.addEvent = function(date, text) {
-        var newEvent = new Event(text);
+
+        console.log("DATE: " + date);
+        
+        var dateSplit = date.split('-');
+        var eventDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2])
+        var newEvent = new Event(eventDate, text);
         this.events.push(newEvent);
-       // localStorage.setItem('events', JSON.stringify(this.events));
+    //    // localStorage.setItem('events', JSON.stringify(this.events));
         return newEvent.id;
+
+    }
+
+    EventList.prototype.getEvents = function(){
+        var calendarEvents = [];
+        this.events.forEach(element => {
+            calendarEvents.push({ 'Date': element.date, 'Title': element.text });
+        });
+
+        return calendarEvents;
     }
 
     EventList.prototype.removeEvent = function(id) {

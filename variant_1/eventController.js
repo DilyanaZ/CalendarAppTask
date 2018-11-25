@@ -7,7 +7,7 @@ $(function () {
     var element = document.getElementById('caleandar');
 
     events = [
-        {'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.'},
+        { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
     ];
     var cal = caleandar(element, events, settings);
 
@@ -19,41 +19,53 @@ $(function () {
     for (var index = 0; index < days.length; index++) {
         days[index].addEventListener('click', function () {
 
-
-
             var year = cal.Selected.Year;
             var month = cal.Selected.Month + 1;
             var selectedDay = this.firstChild.innerText;
 
-            console.log(year);   
-            console.log(month);   
+            console.log(year);
+            console.log(month);
             console.log(selectedDay);
 
             var date = new Date(year, month, selectedDay);
 
             newEvents = [
-                {'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.'},
-                {'Date': new Date(2018, 10, 24), 'Title': 'Tralala appointment at 3:25pm.'},
+                { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
+                { 'Date': new Date(2018, 10, 24), 'Title': 'Tralala appointment at 3:25pm.' },
             ];
 
 
             // cal.Model = newEvents;
 
             console.log("Model: ");
-            for(var i = 0; i < cal.Model.length; i++){
+            for (var i = 0; i < cal.Model.length; i++) {
                 console.log(cal.Model[i]);
             }
-
-
-            
         });
     }
 
 
-    $('#addNewEvent').hide();
+    // $('#addNewEvent').hide();
 
     $('#addEvent').on('click', function () {
-        $('#addNewEvent').show(1000);
+        // $('#addNewEvent').show(1000);
+        var textField = document.getElementById('newEvent');
+        var value = textField.value;
+
+        var date = document.getElementById('myDate').value;
+        if (value.trim().length == 0) {
+            alert("Please enter a title!");
+        };
+        var id = eventList.addEvent(date, value);
+
+        textField.value = '';
+        addEvent(id, date, value);
+
+        var eventArray = eventList.getEvents();
+
+        element.innerHTML = '';
+
+        caleandar(element, eventArray, settings);
     });
 
     function removeEvent(element) {
@@ -74,12 +86,11 @@ $(function () {
     function addEvent(id, date, value) {
         var li = document.createElement('li');
         li.id = id;
-        
+
         li.innerHTML = '<input id="checkbox" type="checkbox" /> <span>' + date + '</span><span>' + '  ' +
-        value + '</span><span class ="remove"> &times; Remove Event</span>';
+            value + '</span><span class ="remove"> &times; Remove Event</span>';
 
         $('#events').append(li);
-
 
         $('span.remove').on({
             mouseenter: function () {
@@ -92,8 +103,6 @@ $(function () {
             },
 
         });
-
-
 
         var checkbox = li.children[0];
         checkbox.addEventListener('click', function () {
@@ -116,7 +125,6 @@ $(function () {
                 removeEvent(input.parentNode);
             });
         });
-
     }
 
     document.getElementById('newEvent').addEventListener('keypress', function () {
