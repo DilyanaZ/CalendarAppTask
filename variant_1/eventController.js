@@ -44,9 +44,6 @@ $(function () {
         });
     }
 
-
-    // $('#addNewEvent').hide();
-
     $('#addEvent').on('click', function () {
         // $('#addNewEvent').show(1000);
         var textField = document.getElementById('newEvent');
@@ -68,11 +65,15 @@ $(function () {
         caleandar(element, eventArray, settings);
     });
 
-    function removeEvent(element) {
-        var li = element;
+    function removeEvent(event) {
+        var li = event;
         var id = li.id;
         eventList.removeEvent(id);
         li.parentNode.removeChild(li);
+        //------------------------------
+        var eventArray = eventList.getEvents();
+        element.innerHTML = '';
+        caleandar(element, eventArray, settings);
     }
 
     function showEvents() {
@@ -133,47 +134,9 @@ $(function () {
             var date = document.getElementById('myDate').value;
             if (value.trim().length == 0) return;
             var id = eventList.addEvent(value);
-            // var li = document.createElement('li');
-            // li.id = id;
-            // li.innerHTML = '<input id="checkbox" type="checkbox" /> <span>' + value + '</span><span class ="remove"> &times; Remove Event</span>';
-            // $('#events').append(li);
+
             this.value = '';
             addEvent(id, date, value);
-
-            // $('span.remove').on({
-            //     mouseenter: function () {
-            //         $(this).css("background-color", "coral");
-            //         $(this).css("color", "white");
-            //     },
-            //     mouseleave: function () {
-            //         $(this).css("background-color", "white");
-            //     },
-
-            // });
-
-            // //__________________________________________________
-            // var checkbox = li.children[0];
-            // checkbox.addEventListener('click', function () {
-            //     var li = this.parentNode;
-            //     var id = li.id;
-            //     eventList.toggleEvent(id);
-
-            //     if (this.checked == true)
-            //         li.children[1].style.textDecoration = 'line-through';
-            //     else
-            //         li.children[1].style.textDecoration = 'none';
-            // });
-
-            // var deleteButton = li.children[2];
-            // deleteButton.addEventListener('click', function () {
-            //     removeEvent(this.parentNode);
-            // });
-
-            // $('span.remove').on('click', function () {
-            //     document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function (input) {
-            //         removeEvent(input.parentNode);
-            //     });
-            // });
         }
 
     });
