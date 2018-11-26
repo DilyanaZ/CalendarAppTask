@@ -8,12 +8,10 @@ $(function() {
 
     events = [
         { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
+        { 'Date': new Date(2018, 10, 4), 'Title': 'Tralala appointment at 3:25pm.' },
     ];
-    var cal = caleandar(element, events, settings);
 
-    element.addEventListener('click', function() {
-        // console.log(element);
-    });
+    var cal = caleandar(element, events, settings);
 
     $('#addEvent').on('click', function() {
         var textField = document.getElementById('newEvent');
@@ -104,6 +102,25 @@ $(function() {
             mouseenter: function() {
                 $(this).css("background-color", "coral");
                 $(this).css("color", "white");
+            },
+            click: function() {
+                swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        swal(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
             },
             mouseleave: function() {
                 $(this).css("background-color", "white");

@@ -21,7 +21,6 @@ var eventList = (function() {
     }
 
     EventList.prototype.addEvent = function(date, text) {
-
         // console.log("DATE: " + date);
         var dateSplit = date.split('-');
         var eventDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2])

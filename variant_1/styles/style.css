@@ -85,12 +85,16 @@ header {
     margin-right: 30px;
     font-size: 1.2em;
     box-sizing: border-box;
-    text-align: center;
+    /* text-align: center; */
 }
 
 div#caleandar {
     display: table;
     margin: 0 auto;
+}
+
+div#showAllEvents {
+    text-align: left;
 }
 
 div#addNewEvent {
@@ -181,25 +185,14 @@ span.remove {
     border-radius: 1px solid red;
     padding: 4px;
     margin: 6px;
-    font-size: 1, 2em;
+    padding: 3px;
+    font-size: 1.2em;
     text-align: center;
     background-color: antiquewhite;
     height: inherit;
     vertical-align: middle;
     text-align: center;
-}
-
-li>button.remove {
-    color: red;
-    border-radius: 1px solid red;
-    padding: 4px;
-    margin: 6px;
-    font-size: 1, 2em;
-    text-align: center;
-    background-color: antiquewhite;
-    height: inherit;
-    vertical-align: middle;
-    text-align: center;
+    border-radius: 15px;
 }
 
 .remove:hover {
