@@ -14,57 +14,52 @@ $(function() {
     element.addEventListener('click', function() {
         // console.log(element);
     });
+
+    $('#addEvent').on('click', function() {
+        var textField = document.getElementById('newEvent');
+        var value = textField.value;
+        var date = document.getElementById('myDate').value;
+        if (value.trim().length == 0) {
+            swal(
+                'Please enter a title for your new Event!',
+                'Add your new event',
+                'warning'
+            )
+        };
+        var id = eventList.addEvent(date, value);
+        textField.value = '';
+        addEvent(id, date, value);
+        var eventArray = eventList.getEvents();
+        element.innerHTML = '';
+        caleandar(element, eventArray, settings);
+    });
     //------------------------------------------------------------------------------------------------------------------------
     var days = document.getElementsByClassName('cld-day');
     for (var index = 0; index < days.length; index++) {
         days[index].addEventListener('click', function() {
-
             var year = cal.Selected.Year;
             var month = cal.Selected.Month + 1;
             var selectedDay = this.firstChild.innerText;
-
             console.log(year);
             console.log(month);
             console.log(selectedDay);
 
+            swal(selectedDay)
+
             var date = new Date(year, month, selectedDay);
-
-            newEvents = [
-                { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
-                { 'Date': new Date(2018, 10, 24), 'Title': 'Tralala appointment at 3:25pm.' },
-            ];
-
-
+            // newEvents = [
+            //     { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
+            //     { 'Date': new Date(2018, 10, 24), 'Title': 'Tralala appointment at 3:25pm.' },
+            // ];
             // cal.Model = newEvents;
-
-            console.log("Model: ");
-            for (var i = 0; i < cal.Model.length; i++) {
-                console.log(cal.Model[i]);
-            }
+            // console.log("Model: ");
+            // for (var i = 0; i < cal.Model.length; i++) {
+            //     console.log(cal.Model[i]);
+            // }
         });
     }
     //------------------------------------------------------------------------------------------------------------------------
 
-    $('#addEvent').on('click', function() {
-
-        var textField = document.getElementById('newEvent');
-        var value = textField.value;
-
-        var date = document.getElementById('myDate').value;
-        if (value.trim().length == 0) {
-            alert("Please enter a title!");
-        };
-        var id = eventList.addEvent(date, value);
-
-        textField.value = '';
-        addEvent(id, date, value);
-
-        var eventArray = eventList.getEvents();
-
-        element.innerHTML = '';
-
-        caleandar(element, eventArray, settings);
-    });
 
     $('#addEvent').on({
         mouseenter: function() {
@@ -94,7 +89,7 @@ $(function() {
         });
     }
 
-    showEvents();
+    // showEvents();
 
     function addEvent(id, date, value) {
         var li = document.createElement('li');
@@ -140,6 +135,8 @@ $(function() {
         });
     }
 
+
+
     // document.getElementById('newEvent').addEventListener('keypress', function() {
     //     if (event.keyCode == ENTER_KEY) {
     //         var value = this.value;
@@ -151,6 +148,5 @@ $(function() {
     //         addEvent(id, date, value);
     //     }
     // });
-
 
 });

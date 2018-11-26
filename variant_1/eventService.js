@@ -1,4 +1,4 @@
-var eventList = (function () {
+var eventList = (function() {
 
     Event.nextId = 0;
 
@@ -6,6 +6,7 @@ var eventList = (function () {
         this.id = ++Event.nextId;
         this.date = date;
         this.text = text;
+        this.eventLink = "https://www.google.com/";
         this.isCompleted = false;
     }
 
@@ -19,27 +20,27 @@ var eventList = (function () {
         // }
     }
 
-    EventList.prototype.addEvent = function (date, text) {
+    EventList.prototype.addEvent = function(date, text) {
 
         // console.log("DATE: " + date);
         var dateSplit = date.split('-');
         var eventDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2])
         var newEvent = new Event(eventDate, text);
         this.events.push(newEvent);
-        //    // localStorage.setItem('events', JSON.stringify(this.events));
+        // localStorage.setItem('events', JSON.stringify(this.events));
         return newEvent.id;
     }
 
-    EventList.prototype.getEvents = function () {
+    EventList.prototype.getEvents = function() {
         var calendarEvents = [];
         this.events.forEach(element => {
-            calendarEvents.push({ 'Date': element.date, 'Title': element.text });
+            calendarEvents.push({ 'Date': element.date, 'Title': element.text, 'Link': element.eventLink });
         });
 
         return calendarEvents;
     }
 
-    EventList.prototype.removeEvent = function (id) {
+    EventList.prototype.removeEvent = function(id) {
         var index = this.events.findIndex((event) => event.id == id);
         if (index < 0) {
             //cannot find
@@ -50,7 +51,7 @@ var eventList = (function () {
         }
     }
 
-    EventList.prototype.toggleEvent = function (id) {
+    EventList.prototype.toggleEvent = function(id) {
         var index = this.events.findIndex(event => event.id == id);
 
         if (index < 0) {
@@ -61,7 +62,7 @@ var eventList = (function () {
         }
     }
 
-    EventList.prototype.removeCompleted = function () {
+    EventList.prototype.removeCompleted = function() {
         this.events = this.events.filter(event => !event.isCompleted); //filter returns new array
 
     }
