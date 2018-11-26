@@ -7,10 +7,15 @@ $(function() {
     var element = document.getElementById('caleandar');
 
     events = [
-        { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
-        { 'Date': new Date(2018, 10, 4), 'Title': 'Tralala appointment at 3:25pm.' },
+        //create initial events (just for testing)
+        // { date: '2018-11-23', title: 'Doctor appointment at 3:25pm.'},
+        // { date: '2018-11-4', title: 'Tralala appointment at 3:25pm.'},
     ];
 
+    events.forEach(initialEvent => eventList.addEvent(initialEvent.date, initialEvent.title));
+
+    //create initial events (just for testing)
+    // var cal = caleandar(element, eventList.getEvents(), settings);
     var cal = caleandar(element, events, settings);
 
     $('#addEvent').on('click', function() {
