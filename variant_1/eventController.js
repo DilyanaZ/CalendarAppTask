@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
 
     const ENTER_KEY = 13;
 
@@ -11,13 +11,13 @@ $(function () {
     ];
     var cal = caleandar(element, events, settings);
 
-    element.addEventListener('click', function () {
+    element.addEventListener('click', function() {
         // console.log(element);
     });
-
+    //------------------------------------------------------------------------------------------------------------------------
     var days = document.getElementsByClassName('cld-day');
     for (var index = 0; index < days.length; index++) {
-        days[index].addEventListener('click', function () {
+        days[index].addEventListener('click', function() {
 
             var year = cal.Selected.Year;
             var month = cal.Selected.Month + 1;
@@ -43,9 +43,10 @@ $(function () {
             }
         });
     }
+    //------------------------------------------------------------------------------------------------------------------------
 
-    $('#addEvent').on('click', function () {
-        // $('#addNewEvent').show(1000);
+    $('#addEvent').on('click', function() {
+
         var textField = document.getElementById('newEvent');
         var value = textField.value;
 
@@ -65,6 +66,17 @@ $(function () {
         caleandar(element, eventArray, settings);
     });
 
+    $('#addEvent').on({
+        mouseenter: function() {
+            $(this).css("background-color", "#1fc8db");
+            $(this).css("color", "#7B00FF");
+        },
+        mouseleave: function() {
+            $(this).css("background-color", "white");
+            $(this).css("color", "#051437");
+        },
+    });
+
     function removeEvent(event) {
         var li = event;
         var id = li.id;
@@ -77,7 +89,7 @@ $(function () {
     }
 
     function showEvents() {
-        eventList.events.forEach(function (event) {
+        eventList.events.forEach(function(event) {
             addEvent(event.id, event.date, event.text);
         });
     }
@@ -94,11 +106,11 @@ $(function () {
         $('#events').append(li);
 
         $('span.remove').on({
-            mouseenter: function () {
+            mouseenter: function() {
                 $(this).css("background-color", "coral");
                 $(this).css("color", "white");
             },
-            mouseleave: function () {
+            mouseleave: function() {
                 $(this).css("background-color", "white");
                 $(this).css("color", "red");
             },
@@ -106,7 +118,7 @@ $(function () {
         });
 
         var checkbox = li.children[0];
-        checkbox.addEventListener('click', function () {
+        checkbox.addEventListener('click', function() {
             var li = this.parentNode;
             var id = li.id;
             eventList.toggleEvent(id);
@@ -117,29 +129,28 @@ $(function () {
                 li.children[2].style.textDecoration = 'none';
         });
         var deleteButton = li.children[3];
-        deleteButton.addEventListener('click', function () {
+        deleteButton.addEventListener('click', function() {
             removeEvent(this.parentNode);
         });
 
-        $('span.remove').on('click', function () {
-            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function (input) {
+        $('span.remove').on('click', function() {
+            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
                 removeEvent(input.parentNode);
             });
         });
     }
 
-    document.getElementById('newEvent').addEventListener('keypress', function () {
-        if (event.keyCode == ENTER_KEY) {
-            var value = this.value;
-            var date = document.getElementById('myDate').value;
-            if (value.trim().length == 0) return;
-            var id = eventList.addEvent(value);
+    // document.getElementById('newEvent').addEventListener('keypress', function() {
+    //     if (event.keyCode == ENTER_KEY) {
+    //         var value = this.value;
+    //         var date = document.getElementById('myDate').value;
+    //         if (value.trim().length == 0) return;
+    //         var id = eventList.addEvent(value);
 
-            this.value = '';
-            addEvent(id, date, value);
-        }
-
-    });
+    //         this.value = '';
+    //         addEvent(id, date, value);
+    //     }
+    // });
 
 
 });

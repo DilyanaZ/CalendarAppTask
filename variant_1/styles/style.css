@@ -7,13 +7,17 @@ body {
     background-image: linear-gradient(to right top, #051437, #004370, #0079a1, #00b2c2, #12ebcf);
     background-repeat: initial;
     overflow: visible;
+    height: 100%;
 }
 
 div.container-fluid {
     /* background-repeat: initial; */
-    height: 700px;
+    height: 100%;
     overflow: auto;
     background-size: auto;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 header h1 {
@@ -75,10 +79,25 @@ header {
 }
 
 .form-group {
+    /* width: 80%; */
     padding: 20px 50px;
-    width: 60%;
-    margin: 0 auto;
+    margin-left: 30px;
+    margin-right: 30px;
     font-size: 1.2em;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+div#caleandar {
+    display: table;
+    margin: 0 auto;
+}
+
+div#addNewEvent {
+    /* float: left; */
+    margin-left: 5%;
+    margin-right: 5%;
+    box-sizing: border-box;
 }
 
 .form-group>input {
@@ -89,7 +108,7 @@ header {
 
 label {
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -98,45 +117,56 @@ label {
     margin: 0 auto;
 }
 
-.btn {
-    float: left;
-    color: #117a8b;
+button#addEvent {
+    /* float: left; */
+    color: #051437;
     font-size: 1.5em;
-    margin-top: 50px;
-    margin-left: 40px;
-    border-color: #117a8b;
+    /* margin-top: 50px;
+    margin-left: 40px; */
+    border-color: #051437;
     border-radius: 15px;
 }
 
-.btn:hover {
-    background-color: bisque;
-    color: black;
+button#addEvent:hover {
+    background-color: rgb(196, 255, 255);
+    color: #7B00FF;
+    text-shadow: 3px 3px 5px white;
 }
 
-div#dateLabel{
+div#dateLabel {
     margin-top: 20px;
     padding: 20px;
-    }
+}
+
+#myDate {
+    margin-left: 20px;
+    margin-right: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 1.5;
+}
+
 #dateLabel>label {
     text-transform: uppercase;
     padding: 8px 14px;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #117a8b;
+    margin-right: 20px;
 }
 
 input#newEvent {
     width: 350px;
-    margin: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 20px;
+    padding: 10px;
     border-radius: 15px;
 }
 
 li {
     color: white;
-    margin: 6px;
     text-decoration: none;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 span.remove {
