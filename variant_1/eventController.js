@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     const ENTER_KEY = 13;
 
@@ -17,8 +17,9 @@ $(function() {
     //create initial events (just for testing)
     // var cal = caleandar(element, eventList.getEvents(), settings);
     var cal = caleandar(element, events, settings);
+    addListeners();
 
-    $('#addEvent').on('click', function() {
+    $('#addEvent').on('click', function () {
         var textField = document.getElementById('newEvent');
         var value = textField.value;
         var date = document.getElementById('myDate').value;
@@ -36,43 +37,49 @@ $(function() {
         var eventArray = eventList.getEvents();
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
+        addListeners();
     });
     //----------------------------------------------------------------
+    function addListeners() {
+        var days = document.getElementsByClassName('cld-day');
+        for (var index = 0; index < days.length; index++) {
+            days[index].addEventListener('click', function (event) {
+                event.stopPropagation();
+                var year = cal.Selected.Year;
+                var month = cal.Selected.Month + 1;
+                var selectedDay = this.firstChild.innerText;
+                var pTag = $('p');
 
-    var days = document.getElementsByClassName('cld-day');
-    for (var index = 0; index < days.length; index++) {
-        days[index].addEventListener('click', function() {
-            var year = cal.Selected.Year;
-            var month = cal.Selected.Month + 1;
-            var selectedDay = this.firstChild.innerText;
+                if ($('p.cld-number eventday')) {
+                    console.log($('p.cld-number eventday').html());
+                }
+                console.log(year);
+                console.log(month);
+                console.log(selectedDay);
 
-            // if (selectedDay.firstChild.className == "eventday") {
-            //     console.log(selectedDay.firstChild.innerText);
-            // }
-            var pTag = $('p');
+                var date = new Date(year, month, selectedDay);
+                var eventArray = eventList.getEvents();
 
-            if ($('p.cld-number eventday')) {
-                console.log($('p.cld-number eventday').html());
-            }
-            console.log(year);
-            console.log(month);
-            console.log(selectedDay);
-            //console.log(days.innerText);
-            // var spanTags = document.querySelectorAll('span.cld-title');
-            // swal(selectedDay)
+                eventArray.forEach(function (createdEvent) {
+                    
+                    if (createdEvent.Date.getDate() == selectedDay.substring(0, selectedDay.indexOf('\n')) &&
+                        (createdEvent.Date.getMonth() + 1) == month &&
+                        createdEvent.Date.getFullYear() == year) {
 
-            var date = new Date(year, month, selectedDay);
-            var eventArray = eventList.getEvents();
-            eventArray.forEach(event => console.log(event.date.getDate()));
-        });
+                        alert(createdEvent.Title);
+                        console.log('Event is from today' + selectedDay)
+                    }
+                });
+            }, true);
+        }
     }
 
     $('#addEvent').on({
-        mouseenter: function() {
+        mouseenter: function () {
             $(this).css("background-color", "#1fc8db");
             $(this).css("color", "#7B00FF");
         },
-        mouseleave: function() {
+        mouseleave: function () {
             $(this).css("background-color", "white");
             $(this).css("color", "#051437");
         },
@@ -86,6 +93,7 @@ $(function() {
         var eventArray = eventList.getEvents();
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
+        addListeners();
     }
 
 
@@ -99,11 +107,11 @@ $(function() {
         $('#events').append(li);
 
         $('span.remove').on({
-            mouseenter: function() {
+            mouseenter: function () {
                 $(this).css("background-color", "coral");
                 $(this).css("color", "white");
             },
-            click: function() {
+            click: function () {
 
                 const toast = swal.mixin({
                     toast: true,
@@ -113,16 +121,16 @@ $(function() {
                 });
 
                 toast({
-                        type: 'warning',
-                        title: 'This event is deleted from your list'
-                    })
-                    // swal({
-                    //     title: 'You just deleted your event',
-                    //     animation: true,
-                    //     text: "You won't be able to revert this!",
-                    //     type: 'warning',
-                    //     customClass: 'animated tada'
-                    // })
+                    type: 'warning',
+                    title: 'This event is deleted from your list'
+                })
+                // swal({
+                //     title: 'You just deleted your event',
+                //     animation: true,
+                //     text: "You won't be able to revert this!",
+                //     type: 'warning',
+                //     customClass: 'animated tada'
+                // })
 
                 // swal({
                 //     title: 'Are you sure?',
@@ -148,7 +156,7 @@ $(function() {
                 //     }
                 // })
             },
-            mouseleave: function() {
+            mouseleave: function () {
                 $(this).css("background-color", "white");
                 $(this).css("color", "red");
             },
@@ -156,7 +164,7 @@ $(function() {
         });
 
         var checkbox = li.children[0];
-        checkbox.addEventListener('click', function() {
+        checkbox.addEventListener('click', function () {
             var li = this.parentNode;
             var id = li.id;
             eventList.toggleEvent(id);
@@ -167,12 +175,12 @@ $(function() {
                 li.children[2].style.textDecoration = 'none';
         });
         var deleteButton = li.children[3];
-        deleteButton.addEventListener('click', function() {
+        deleteButton.addEventListener('click', function () {
             removeEvent(this.parentNode);
         });
 
-        $('span.remove').on('click', function() {
-            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
+        $('span.remove').on('click', function () {
+            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function (input) {
                 removeEvent(input.parentNode);
             });
         });
@@ -201,7 +209,7 @@ $(function() {
     // var days = document.getElementsByClassName('cld-day');
 
     for (var index = 0; index < days.length; index++) {
-        days[index].addEventListener('click', function() {
+        days[index].addEventListener('click', function () {
             var year = cal.Selected.Year;
             var month = cal.Selected.Month + 1;
             var selectedDay = this.firstChild.innerText;
