@@ -37,22 +37,23 @@ $(function() {
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
     });
+    //----------------------------------------------------------------
 
-    var days = document.getElementsByClassName('cld-day');
-    for (var index = 0; index < days.length; index++) {
-        days[index].addEventListener('click', function() {
-            var year = cal.Selected.Year;
-            var month = cal.Selected.Month + 1;
-            var selectedDay = this.firstChild.innerText;
-            console.log(year);
-            console.log(month);
-            console.log(selectedDay);
+    // var days = document.getElementsByClassName('cld-day');
+    // for (var index = 0; index < days.length; index++) {
+    //     days[index].addEventListener('click', function() {
+    //         var year = cal.Selected.Year;
+    //         var month = cal.Selected.Month + 1;
+    //         var selectedDay = this.firstChild.innerText;
+    //         console.log(year);
+    //         console.log(month);
+    //         console.log(selectedDay);
 
-            swal(selectedDay)
+    //         swal(selectedDay)
 
-            var date = new Date(year, month, selectedDay);
-        });
-    }
+    //         var date = new Date(year, month, selectedDay);
+    //     });
+    // }
 
     $('#addEvent').on({
         mouseenter: function() {
@@ -185,5 +186,30 @@ $(function() {
     //         addEvent(id, date, value);
     //     }
     // });
+    var days = document.getElementsByClassName('cld-day');
+    for (var index = 0; index < days.length; index++) {
+        days[index].addEventListener('click', function() {
+            var year = cal.Selected.Year;
+            var month = cal.Selected.Month + 1;
+            var selectedDay = this.firstChild.innerText;
+            console.log(year);
+            console.log(month);
+            console.log(selectedDay);
+
+            swal({
+                title: 'NO',
+                width: 600,
+                padding: '11em',
+                background: 'url(./styles/images/events.jpg)',
+                backdrop: `
+                  rgba(0,0,123,0.4)
+                  center left
+                  no-repeat
+                `
+            })
+
+            var date = new Date(year, month, selectedDay);
+        });
+    }
 
 });
