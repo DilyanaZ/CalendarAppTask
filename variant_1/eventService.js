@@ -23,7 +23,7 @@ var eventList = (function() {
     EventList.prototype.addEvent = function(date, text) {
         // console.log("DATE: " + date);
         var dateSplit = date.split('-');
-        var eventDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2])
+        var eventDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
         var newEvent = new Event(eventDate, text);
         this.events.push(newEvent);
         // localStorage.setItem('events', JSON.stringify(this.events));
