@@ -28,6 +28,7 @@ $(function() {
                 'Add your new event',
                 'warning'
             )
+            return;
         };
         var id = eventList.addEvent(date, value);
         textField.value = '';
@@ -36,7 +37,7 @@ $(function() {
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
     });
-    //------------------------------------------------------------------------------------------------------------------------
+
     var days = document.getElementsByClassName('cld-day');
     for (var index = 0; index < days.length; index++) {
         days[index].addEventListener('click', function() {
@@ -50,19 +51,8 @@ $(function() {
             swal(selectedDay)
 
             var date = new Date(year, month, selectedDay);
-            // newEvents = [
-            //     { 'Date': new Date(2018, 10, 23), 'Title': 'Doctor appointment at 3:25pm.' },
-            //     { 'Date': new Date(2018, 10, 24), 'Title': 'Tralala appointment at 3:25pm.' },
-            // ];
-            // cal.Model = newEvents;
-            // console.log("Model: ");
-            // for (var i = 0; i < cal.Model.length; i++) {
-            //     console.log(cal.Model[i]);
-            // }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------------
-
 
     $('#addEvent').on({
         mouseenter: function() {
@@ -80,19 +70,11 @@ $(function() {
         var id = li.id;
         eventList.removeEvent(id);
         li.parentNode.removeChild(li);
-        //------------------------------
         var eventArray = eventList.getEvents();
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
     }
 
-    function showEvents() {
-        eventList.events.forEach(function(event) {
-            addEvent(event.id, event.date, event.text);
-        });
-    }
-
-    // showEvents();
 
     function addEvent(id, date, value) {
         var li = document.createElement('li');
@@ -109,23 +91,49 @@ $(function() {
                 $(this).css("color", "white");
             },
             click: function() {
-                swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        swal(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
-                    }
-                })
+
+                const toast = swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                toast({
+                        type: 'warning',
+                        title: 'This event is deleted from your list'
+                    })
+                    // swal({
+                    //     title: 'You just deleted your event',
+                    //     animation: true,
+                    //     text: "You won't be able to revert this!",
+                    //     type: 'warning',
+                    //     customClass: 'animated tada'
+                    // })
+
+                // swal({
+                //     title: 'Are you sure?',
+                //     text: "You won't be able to revert this!",
+                //     type: 'warning',
+                //     showCancelButton: true,
+                //     confirmButtonColor: '#3085d6',
+                //     cancelButtonColor: '#d33',
+                //     confirmButtonText: 'Yes, delete it!'
+                // }).then((result) => {
+                //     if (result.value) {
+                //         swal.enableButtons(),
+                //             // // $('span.remove').on('click', function() {
+                //             // document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
+                //             //     removeEvent(input.parentNode);
+                //             // });
+                //             // // });
+                //             swal(
+                //                 'Deleted!',
+                //                 'Your file has been deleted.',
+                //                 'success'
+                //             )
+                //     }
+                // })
             },
             mouseleave: function() {
                 $(this).css("background-color", "white");
@@ -157,6 +165,13 @@ $(function() {
         });
     }
 
+    // function showEvents() {
+    //     eventList.events.forEach(function(event) {
+    //         addEvent(event.id, event.date, event.text);
+    //     });
+    // }
+
+    // // showEvents();
 
 
     // document.getElementById('newEvent').addEventListener('keypress', function() {

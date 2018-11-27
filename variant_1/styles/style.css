@@ -95,6 +95,7 @@ div#caleandar {
 
 div#showAllEvents {
     text-align: left;
+    box-sizing: border-box;
 }
 
 div#addNewEvent {
@@ -129,19 +130,17 @@ label {
 }
 
 button#addEvent {
-    /* float: left; */
     color: #051437;
     font-size: 1.5em;
-    /* margin-top: 50px;
-    margin-left: 40px; */
     border-color: #051437;
     border-radius: 15px;
 }
 
-button#addEvent:hover {
+button:hover {
     background-color: rgb(196, 255, 255);
     color: #7B00FF;
     text-shadow: 3px 3px 5px white;
+    cursor: pointer;
 }
 
 div#dateLabel {
@@ -193,6 +192,7 @@ span.remove {
     vertical-align: middle;
     text-align: center;
     border-radius: 15px;
+    box-sizing: border-box;
 }
 
 .remove:hover {
@@ -202,4 +202,20 @@ span.remove {
 button#removeEvent {
     height: 38px;
     box-sizing: border-box;
+}
+
+.cld-main a {
+    color: #f27474;
+    font-size: 1.5em;
+}
+
+li.cld-label:hover {
+    cursor: pointer;
+    border: 1px solid #7B00FF;
+    background-color: #666;
+}
+
+li.cld-day {
+    height: 90px;
+    ;
 }
