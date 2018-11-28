@@ -121,12 +121,9 @@ $(function() {
     function addEvent(id, date, value) {
         var li = document.createElement('li');
         li.id = id;
-
         li.innerHTML = '<input id="checkbox" type="checkbox" /> <span>' + date + '</span><span id="eventText">' + '  ' +
             value + '</span><span class ="remove">&times;Remove</span><span id="edit"">Edit</span>';
-
         $('#events').append(li);
-
         $('span.remove').on({
             mouseenter: function() {
                 $(this).css("background-color", "#7B00FF");
@@ -140,7 +137,6 @@ $(function() {
                     showConfirmButton: false,
                     timer: 3000
                 });
-
                 toast({
                     type: 'warning',
                     title: 'This event is deleted from your list'
@@ -150,7 +146,6 @@ $(function() {
                 $(this).css("background-color", "white");
                 $(this).css("color", "red");
             },
-
         });
 
         $('span#edit').on({
@@ -166,7 +161,7 @@ $(function() {
                 var li = this.parentNode;
                 var id = li.id;
                 console.log(id);
-                removeEvent(this.parentNode);
+
                 $('div#addNewEvent').hide();
                 $('div#editEvent').show();
             }
@@ -189,6 +184,7 @@ $(function() {
         }
 
         function someFunc() {
+            removeEvent(this.parentNode);
             stickEditedEvent();
             $('div#editEvent').hide();
             $('div#addNewEvent').show();
