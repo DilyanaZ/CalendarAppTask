@@ -126,7 +126,7 @@ $(function() {
         $('#events').append(li);
         $('span.remove').on({
             mouseenter: function() {
-                $(this).css("background-color", "#7B00FF");
+                $(this).css("background-color", "hotpink");
                 $(this).css("color", "white");
             },
             click: function() {
@@ -150,7 +150,7 @@ $(function() {
 
         $('span#edit').on({
             mouseenter: function() {
-                $(this).css("background-color", "#1ec7e6");
+                $(this).css("background-color", "hotpink");
                 $(this).css("color", "white");
             },
             mouseleave: function() {
