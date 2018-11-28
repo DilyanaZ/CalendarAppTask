@@ -1,4 +1,11 @@
-var eventList = [
+var eventList = [{
+        "date": "2018-11-23",
+        "title": "Doctor appointment at 3:25pm."
+    },
+    {
+        "date": "2018-11-4",
+        "title": "Tralala appointment at 3:25pm."
+    }
 
-    
+
 ];

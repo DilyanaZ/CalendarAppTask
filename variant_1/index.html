@@ -30,10 +30,10 @@
         </header>
         <main>
             <div class="form-group row">
-                <div id="caleandar" class="col-8">
+                <div id="caleandar" class="col-6">
 
                 </div>
-                <div id="showAllEvents" class="col-4">
+                <div id="showAllEvents" class="col-6">
                     <ul id="events">
                         <!-- <li id="addedEvent"><input type="checkbox" /> <button id="removeCompleted">Remove Completed</button></li> -->
                     </ul>
@@ -48,6 +48,16 @@
                 <label for="newEvent">Title:</label>
                 <input type="text" id="newEvent">
                 <button type="submit" id="addEvent" class="btn">Add Event</button>
+            </div>
+            <div id="editEvent">
+                <div>
+                    <p>Edit event:</p>
+                </div>
+                <label for="dateLabel"> Chose new Date:</label>
+                <input type="date" id="editedDate" value="2018-11-22">
+                <label for="newEvent"> New Title:</label>
+                <input type="text" id="editedEvent">
+                <button type="submit" id="confirm" class="btn">Confirm</button>
             </div>
         </main>
         <footer>

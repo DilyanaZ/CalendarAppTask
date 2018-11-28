@@ -111,7 +111,8 @@ div#addNewEvent {
     box-sizing: border-box;
 }
 
-div#addNewEvent p {
+div#addNewEvent p,
+div#editEvent p {
     color: white;
     font-size: 1.8em;
     text-shadow: 3px 3px 5px black;
@@ -130,16 +131,13 @@ label {
     font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-#buttonGroup {
-    width: 50%;
-    margin: 0 auto;
-}
-
-button#addEvent {
+button#addEvent,
+button#confirm {
     color: #051437;
-    font-size: 1.5em;
-    border-color: #051437;
+    font-size: 1em;
+    border-color: 1px solid #051437;
     border-radius: 15px;
+    font-weight: bold;
 }
 
 button:hover {
@@ -154,7 +152,8 @@ div#dateLabel {
     padding: 20px;
 }
 
-#myDate {
+#myDate,
+#editedDate {
     margin-left: 20px;
     margin-right: 40px;
     padding: 10px;
@@ -171,7 +170,8 @@ div#dateLabel {
     margin-right: 20px;
 }
 
-input#newEvent {
+input#newEvent,
+input#editedEvent {
     width: 350px;
     margin: 20px;
     padding: 10px;
@@ -182,37 +182,59 @@ li {
     color: white;
     text-decoration: none;
     margin-top: 10px;
+    vertical-align: -webkit-baseline-middle;
     padding: 5px;
 }
 
-span.remove {
+span {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+span.remove,
+span#edit {
     color: red;
     border-radius: 1px solid red;
     padding: 4px;
-    margin: 6px;
-    padding: 3px;
-    font-size: 1.2em;
-    text-align: center;
+    font-size: 1em;
     background-color: antiquewhite;
     height: inherit;
     vertical-align: middle;
+    width: 100%;
     text-align: center;
-    border-radius: 15px;
-    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+span#edit {
+    color: #051437;
+}
+
+span#eventText {
+    margin-right: 10px;
 }
 
 .remove:hover {
-    background-color: coral;
+    background-color: #7B00FF;
 }
 
 button#removeEvent {
-    height: 38px;
+    height: 20px;
     box-sizing: border-box;
+}
+
+div.cld-main {
+    box-sizing: border-box;
+    margin-right: 10px;
+    text-align: center;
 }
 
 .cld-main a {
     color: #12ebcf;
     font-size: 1.5em;
+}
+
+li.cld-label {
+    margin-right: 8px;
 }
 
 li.cld-label:hover {
@@ -223,5 +245,4 @@ li.cld-label:hover {
 
 li.cld-day {
     height: 90px;
-    ;
 }

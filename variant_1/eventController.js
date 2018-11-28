@@ -19,7 +19,9 @@ $(function() {
     var cal = caleandar(element, events, settings);
     addListeners();
 
-    $('#addEvent').on('click', function() {
+    $('div#editEvent').hide();
+
+    function stickEvent() {
         var textField = document.getElementById('newEvent');
         var value = textField.value;
         var date = document.getElementById('myDate').value;
@@ -38,7 +40,31 @@ $(function() {
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
         addListeners();
-    });
+    }
+
+    $('#addEvent').on('click', stickEvent);
+
+
+    // $('#addEvent').on('click', function() {
+    //     var textField = document.getElementById('newEvent');
+    //     var value = textField.value;
+    //     var date = document.getElementById('myDate').value;
+    //     if (value.trim().length == 0) {
+    //         swal(
+    //             'Please enter a title for your new Event!',
+    //             'Add your new event',
+    //             'warning'
+    //         )
+    //         return;
+    //     };
+    //     var id = eventList.addEvent(date, value);
+    //     textField.value = '';
+    //     addEvent(id, date, value);
+    //     var eventArray = eventList.getEvents();
+    //     element.innerHTML = '';
+    //     caleandar(element, eventArray, settings);
+    //     addListeners();
+    // });
     //----------------------------------------------------------------
     function addListeners() {
         var days = document.getElementsByClassName('cld-day');
@@ -81,17 +107,6 @@ $(function() {
         }
     }
 
-    // $('#addEvent').on({
-    //     mouseenter: function() {
-    //         $(this).css("background-color", "#1fc8db");
-    //         $(this).css("color", "#7B00FF");
-    //     },
-    //     mouseleave: function() {
-    //         $(this).css("background-color", "white");
-    //         $(this).css("color", "#051437");
-    //     },
-    // });
-
     function removeEvent(event) {
         var li = event;
         var id = li.id;
@@ -107,14 +122,14 @@ $(function() {
         var li = document.createElement('li');
         li.id = id;
 
-        li.innerHTML = '<input id="checkbox" type="checkbox" /> <span>' + date + '</span><span>' + '  ' +
-            value + '</span><span class ="remove"> &times; Remove Event</span>';
+        li.innerHTML = '<input id="checkbox" type="checkbox" /> <span>' + date + '</span><span id="eventText">' + '  ' +
+            value + '</span><span class ="remove">&times;Remove</span><span id="edit"">Edit</span>';
 
         $('#events').append(li);
 
         $('span.remove').on({
             mouseenter: function() {
-                $(this).css("background-color", "coral");
+                $(this).css("background-color", "#7B00FF");
                 $(this).css("color", "white");
             },
             click: function() {
@@ -137,6 +152,51 @@ $(function() {
             },
 
         });
+
+        $('span#edit').on({
+            mouseenter: function() {
+                $(this).css("background-color", "#1ec7e6");
+                $(this).css("color", "white");
+            },
+            mouseleave: function() {
+                $(this).css("background-color", "white");
+                $(this).css("color", "#051437");
+            },
+            click: function() {
+                var li = this.parentNode;
+                var id = li.id;
+                console.log(id);
+                removeEvent(this.parentNode);
+                $('div#addNewEvent').hide();
+                $('div#editEvent').show();
+            }
+        });
+
+        function stickEditedEvent() {
+            var textField = document.getElementById('editedEvent');
+            var value = textField.value;
+            var date = document.getElementById('editedDate').value;
+            if (value.trim().length == 0) {
+                return;
+            }
+            var id = eventList.addEvent(date, value);
+            textField.value = '';
+            addEvent(id, date, value);
+            var eventArray = eventList.getEvents();
+            element.innerHTML = '';
+            caleandar(element, eventArray, settings);
+            addListeners();
+        }
+
+        function someFunc() {
+            stickEditedEvent();
+            $('div#editEvent').hide();
+            $('div#addNewEvent').show();
+        }
+
+        $('#confirm').on('click', someFunc);
+
+
 
         var checkbox = li.children[0];
         checkbox.addEventListener('click', function() {
