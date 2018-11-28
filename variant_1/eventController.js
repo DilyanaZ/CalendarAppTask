@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
 
     const ENTER_KEY = 13;
 
@@ -19,7 +19,7 @@ $(function () {
     var cal = caleandar(element, events, settings);
     addListeners();
 
-    $('#addEvent').on('click', function () {
+    $('#addEvent').on('click', function() {
         var textField = document.getElementById('newEvent');
         var value = textField.value;
         var date = document.getElementById('myDate').value;
@@ -43,47 +43,54 @@ $(function () {
     function addListeners() {
         var days = document.getElementsByClassName('cld-day');
         for (var index = 0; index < days.length; index++) {
-            days[index].addEventListener('click', function (event) {
+            days[index].addEventListener('click', function(event) {
                 event.stopPropagation();
                 var year = cal.Selected.Year;
                 var month = cal.Selected.Month + 1;
                 var selectedDay = this.firstChild.innerText;
-                var pTag = $('p');
-
-                if ($('p.cld-number eventday')) {
-                    console.log($('p.cld-number eventday').html());
-                }
                 console.log(year);
                 console.log(month);
                 console.log(selectedDay);
+                swal('No events for today')
 
                 var date = new Date(year, month, selectedDay);
                 var eventArray = eventList.getEvents();
 
-                eventArray.forEach(function (createdEvent) {
-                    
+                eventArray.forEach(function(createdEvent) {
+
                     if (createdEvent.Date.getDate() == selectedDay.substring(0, selectedDay.indexOf('\n')) &&
                         (createdEvent.Date.getMonth() + 1) == month &&
                         createdEvent.Date.getFullYear() == year) {
-
-                        alert(createdEvent.Title);
-                        console.log('Event is from today' + selectedDay)
+                        if (createdEvent.Title.length == 0) {
+                            swal('No events for today.')
+                        } else {
+                            swal({
+                                title: selectedDay,
+                                // text: createdEvent.Title,
+                                imageUrl: 'http://nebraskaleaguefornursing.weebly.com/uploads/2/6/1/1/26116849/2025872_orig.jpg',
+                                imageWidth: 400,
+                                imageHeight: 200,
+                                imageAlt: 'Custom image',
+                                animation: false
+                            })
+                        }
+                        console.log('Event is from today' + selectedDay);
                     }
                 });
             }, true);
         }
     }
 
-    $('#addEvent').on({
-        mouseenter: function () {
-            $(this).css("background-color", "#1fc8db");
-            $(this).css("color", "#7B00FF");
-        },
-        mouseleave: function () {
-            $(this).css("background-color", "white");
-            $(this).css("color", "#051437");
-        },
-    });
+    // $('#addEvent').on({
+    //     mouseenter: function() {
+    //         $(this).css("background-color", "#1fc8db");
+    //         $(this).css("color", "#7B00FF");
+    //     },
+    //     mouseleave: function() {
+    //         $(this).css("background-color", "white");
+    //         $(this).css("color", "#051437");
+    //     },
+    // });
 
     function removeEvent(event) {
         var li = event;
@@ -96,7 +103,6 @@ $(function () {
         addListeners();
     }
 
-
     function addEvent(id, date, value) {
         var li = document.createElement('li');
         li.id = id;
@@ -107,11 +113,11 @@ $(function () {
         $('#events').append(li);
 
         $('span.remove').on({
-            mouseenter: function () {
+            mouseenter: function() {
                 $(this).css("background-color", "coral");
                 $(this).css("color", "white");
             },
-            click: function () {
+            click: function() {
 
                 const toast = swal.mixin({
                     toast: true,
@@ -124,39 +130,8 @@ $(function () {
                     type: 'warning',
                     title: 'This event is deleted from your list'
                 })
-                // swal({
-                //     title: 'You just deleted your event',
-                //     animation: true,
-                //     text: "You won't be able to revert this!",
-                //     type: 'warning',
-                //     customClass: 'animated tada'
-                // })
-
-                // swal({
-                //     title: 'Are you sure?',
-                //     text: "You won't be able to revert this!",
-                //     type: 'warning',
-                //     showCancelButton: true,
-                //     confirmButtonColor: '#3085d6',
-                //     cancelButtonColor: '#d33',
-                //     confirmButtonText: 'Yes, delete it!'
-                // }).then((result) => {
-                //     if (result.value) {
-                //         swal.enableButtons(),
-                //             // // $('span.remove').on('click', function() {
-                //             // document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
-                //             //     removeEvent(input.parentNode);
-                //             // });
-                //             // // });
-                //             swal(
-                //                 'Deleted!',
-                //                 'Your file has been deleted.',
-                //                 'success'
-                //             )
-                //     }
-                // })
             },
-            mouseleave: function () {
+            mouseleave: function() {
                 $(this).css("background-color", "white");
                 $(this).css("color", "red");
             },
@@ -164,7 +139,7 @@ $(function () {
         });
 
         var checkbox = li.children[0];
-        checkbox.addEventListener('click', function () {
+        checkbox.addEventListener('click', function() {
             var li = this.parentNode;
             var id = li.id;
             eventList.toggleEvent(id);
@@ -175,12 +150,12 @@ $(function () {
                 li.children[2].style.textDecoration = 'none';
         });
         var deleteButton = li.children[3];
-        deleteButton.addEventListener('click', function () {
+        deleteButton.addEventListener('click', function() {
             removeEvent(this.parentNode);
         });
 
-        $('span.remove').on('click', function () {
-            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function (input) {
+        $('span.remove').on('click', function() {
+            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
                 removeEvent(input.parentNode);
             });
         });
@@ -193,7 +168,6 @@ $(function () {
     // }
 
     // // showEvents();
-
 
     // document.getElementById('newEvent').addEventListener('keypress', function() {
     //     if (event.keyCode == ENTER_KEY) {
@@ -208,29 +182,29 @@ $(function () {
     // });
     // var days = document.getElementsByClassName('cld-day');
 
-    for (var index = 0; index < days.length; index++) {
-        days[index].addEventListener('click', function () {
-            var year = cal.Selected.Year;
-            var month = cal.Selected.Month + 1;
-            var selectedDay = this.firstChild.innerText;
-            console.log(year);
-            console.log(month);
-            console.log(selectedDay);
+    // for (var index = 0; index < days.length; index++) {
+    //     days[index].addEventListener('click', function() {
+    //         var year = cal.Selected.Year;
+    //         var month = cal.Selected.Month + 1;
+    //         var selectedDay = this.firstChild.innerText;
+    //         console.log(year);
+    //         console.log(month);
+    //         console.log(selectedDay);
 
-            swal({
-                title: 'NO',
-                width: 600,
-                padding: '11em',
-                background: 'url(./styles/images/events.jpg)',
-                backdrop: `
-                  rgba(0,0,123,0.4)
-                  center left
-                  no-repeat
-                `
-            })
+    //         swal({
+    //             title: 'NO',
+    //             width: 600,
+    //             padding: '11em',
+    //             background: 'url(./styles/images/events.jpg)',
+    //             backdrop: `
+    //               rgba(0,0,123,0.4)
+    //               center left
+    //               no-repeat
+    //             `
+    //         })
 
-            var date = new Date(year, month, selectedDay);
-        });
-    }
+    //         var date = new Date(year, month, selectedDay);
+    //     });
+    // }
 
 });
