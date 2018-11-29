@@ -204,7 +204,8 @@ span {
 }
 
 span.remove,
-span#edit {
+span#edit,
+span#eventText {
     color: red;
     border-radius: 1px solid red;
     padding: 4px;
@@ -222,7 +223,10 @@ span#edit {
 }
 
 span#eventText {
-    margin-right: 10px;
+    font-size: 1.2em;
+    color: #7B00FF;
+    background-color: antiquewhite;
+    border-radius: 5px;
 }
 
 .remove:hover {
@@ -242,6 +246,7 @@ div.cld-main {
 
 .cld-main a {
     color: #12ebcf;
+    background-color: antiquewhite;
     font-size: 1.5em;
 }
 

@@ -21,31 +21,7 @@ $(function() {
 
     $('div#editEvent').hide();
 
-    function stickEvent() {
-        var textField = document.getElementById('newEvent');
-        var value = textField.value;
-        var date = document.getElementById('myDate').value;
-        if (value.trim().length == 0) {
-            swal(
-                'Please enter a title for your new Event!',
-                'Add your new event',
-                'warning'
-            )
-            return;
-        };
-        var id = eventList.addEvent(date, value);
-        textField.value = '';
-        addEvent(id, date, value);
-        var eventArray = eventList.getEvents();
-        element.innerHTML = '';
-        caleandar(element, eventArray, settings);
-        addListeners();
-    }
-
-    $('#addEvent').on('click', stickEvent);
-
-
-    // $('#addEvent').on('click', function() {
+    // function stickEvent() {
     //     var textField = document.getElementById('newEvent');
     //     var value = textField.value;
     //     var date = document.getElementById('myDate').value;
@@ -64,7 +40,31 @@ $(function() {
     //     element.innerHTML = '';
     //     caleandar(element, eventArray, settings);
     //     addListeners();
-    // });
+    // }
+
+    // $('#addEvent').on('click', stickEvent);
+
+
+    $('#addEvent').on('click', function() {
+        var textField = document.getElementById('newEvent');
+        var value = textField.value;
+        var date = document.getElementById('myDate').value;
+        if (value.trim().length == 0) {
+            swal(
+                'Please enter a title for your new Event!',
+                'Add your new event',
+                'warning'
+            )
+            return;
+        };
+        var id = eventList.addEvent(date, value);
+        textField.value = '';
+        addEvent(id, date, value);
+        var eventArray = eventList.getEvents();
+        element.innerHTML = '';
+        caleandar(element, eventArray, settings);
+        addListeners();
+    });
     //----------------------------------------------------------------
     function addListeners() {
         var days = document.getElementsByClassName('cld-day');
