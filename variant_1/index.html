@@ -30,13 +30,28 @@
         </header>
         <main>
             <div class="form-group row">
-                <div id="caleandar" class="col-6">
+                <div id="caleandar" class="col-sm-5">
 
                 </div>
-                <div id="showAllEvents" class="col-6">
+                <div id="showAllEvents" class="col-sm-4">
                     <ul id="events">
                         <!-- <li id="addedEvent"><input type="checkbox" /> <button id="removeCompleted">Remove Completed</button></li> -->
                     </ul>
+                </div>
+                <div id="editEvent" class="col-sm-3">
+                    <div>
+                        <p>Edit event:</p>
+                    </div>
+                    <div>
+                        <label for="dateLabel"> Chose new Date:</label>
+                        <input type="date" id="editedDate" value="2018-11-22">
+                        <label for="newEvent"> New Title:</label>
+                        <input type="text" id="editedEvent">
+                        <button type="submit" id="confirm" class="btn">Confirm</button>
+                        <button type="submit" id="cancel" class="btn">Cancel</button>
+
+                    </div>
+
                 </div>
             </div>
             <div id="addNewEvent">
@@ -49,17 +64,7 @@
                 <input type="text" id="newEvent">
                 <button type="submit" id="addEvent" class="btn">Add Event</button>
             </div>
-            <div id="editEvent">
-                <div>
-                    <p>Edit event:</p>
-                </div>
-                <label for="dateLabel"> Chose new Date:</label>
-                <input type="date" id="editedDate" value="2018-11-22">
-                <label for="newEvent"> New Title:</label>
-                <input type="text" id="editedEvent">
-                <button type="submit" id="confirm" class="btn">Confirm</button>
-                <button type="submit" id="cancel" class="btn">Cancel</button>
-            </div>
+
         </main>
         <footer>
 
