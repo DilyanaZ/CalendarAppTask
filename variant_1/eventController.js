@@ -171,6 +171,12 @@ $(function() {
                     $('div#addNewEvent').show();
                     $('div#editEvent').hide();
                 });
+                var cancelButton = document.getElementById('cancel');
+                cancelButton.addEventListener('click', function() {
+                    currentLi.style.display = "list-item";;
+                    $('div#addNewEvent').show();
+                    $('div#editEvent').hide();
+                });
             }
         });
 
@@ -201,62 +207,37 @@ $(function() {
             else
                 li.children[2].style.textDecoration = 'none';
         });
+
         var deleteButton = li.children[3];
         deleteButton.addEventListener('click', function() {
-            removeEvent(this.parentNode);
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    swal(
+                        'Deleted!',
+                        'Your event has been deleted.',
+                        'success'
+                    )
+                    removeEvent(this.parentNode);
+                    document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
+                        removeEvent(input.parentNode);
+                    });
+                }
+            })
         });
-
-        $('span.remove').on('click', function() {
-            document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
-                removeEvent(input.parentNode);
-            });
-        });
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // $('span.remove').on('click', function() {
+        //     document.querySelectorAll('#events > li > input[type=checkbox]:checked').forEach(function(input) {
+        //         removeEvent(input.parentNode);
+        //     });
+        // });
     }
-
-    // function showEvents() {
-    //     eventList.events.forEach(function(event) {
-    //         addEvent(event.id, event.date, event.text);
-    //     });
-    // }
-
-    // // showEvents();
-
-    // document.getElementById('newEvent').addEventListener('keypress', function() {
-    //     if (event.keyCode == ENTER_KEY) {
-    //         var value = this.value;
-    //         var date = document.getElementById('myDate').value;
-    //         if (value.trim().length == 0) return;
-    //         var id = eventList.addEvent(value);
-
-    //         this.value = '';
-    //         addEvent(id, date, value);
-    //     }
-    // });
-    // var days = document.getElementsByClassName('cld-day');
-
-    // for (var index = 0; index < days.length; index++) {
-    //     days[index].addEventListener('click', function() {
-    //         var year = cal.Selected.Year;
-    //         var month = cal.Selected.Month + 1;
-    //         var selectedDay = this.firstChild.innerText;
-    //         console.log(year);
-    //         console.log(month);
-    //         console.log(selectedDay);
-
-    //         swal({
-    //             title: 'NO',
-    //             width: 600,
-    //             padding: '11em',
-    //             background: 'url(./styles/images/events.jpg)',
-    //             backdrop: `
-    //               rgba(0,0,123,0.4)
-    //               center left
-    //               no-repeat
-    //             `
-    //         })
-
-    //         var date = new Date(year, month, selectedDay);
-    //     });
-    // }
 
 });
