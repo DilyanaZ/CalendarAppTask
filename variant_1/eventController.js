@@ -158,12 +158,19 @@ $(function() {
                 $(this).css("color", "#051437");
             },
             click: function() {
-                var li = this.parentNode;
-                var id = li.id;
-                console.log(id);
-
+                var currentLi = this.parentNode;
+                var currentId = currentLi.id;
+                currentLi.style.display = "none";
                 $('div#addNewEvent').hide();
                 $('div#editEvent').show();
+                var confirmButton = document.getElementById('confirm');
+                confirmButton.addEventListener('click', function() {
+                    console.log(currentLi);
+                    removeEvent(currentLi);
+                    stickEditedEvent();
+                    $('div#addNewEvent').show();
+                    $('div#editEvent').hide();
+                });
             }
         });
 
@@ -182,17 +189,6 @@ $(function() {
             caleandar(element, eventArray, settings);
             addListeners();
         }
-
-        function someFunc() {
-            removeEvent(this.parentNode);
-            stickEditedEvent();
-            $('div#editEvent').hide();
-            $('div#addNewEvent').show();
-        }
-
-        $('#confirm').on('click', someFunc);
-
-
 
         var checkbox = li.children[0];
         checkbox.addEventListener('click', function() {
