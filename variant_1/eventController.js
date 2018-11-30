@@ -2,9 +2,21 @@ $(function() {
 
     const ENTER_KEY = 13;
 
+
     var settings = {};
     var events = [];
     var element = document.getElementById('caleandar');
+
+
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!when MIME type is JSON, jqueruy automatically parse it to Objects
+    $.get('./events.json').then(function(events) {
+        console.log(events);
+        // events.forEach(event => {
+
+        // });
+    });
+
 
     events = [
         //create initial events (just for testing)
