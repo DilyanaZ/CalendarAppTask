@@ -5,14 +5,12 @@ $(function() {
     var element = document.getElementById('caleandar');
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!when MIME type is JSON, jqueruy automatically parse it to Objects
-    $.get('./events.json').then(function(events) {
-        console.log(events);
-        // events.forEach(event => {
+    // $.get('http://localhost:8080/events.json').then(function(events) {
+    //     console.log(events);
+    //     // events.forEach(event => {
 
-        // });
-    });
-
-
+    //     // });
+    // });
     events = [
         //create initial events (just for testing)
         // { date: '2018-11-23', title: 'Doctor appointment at 3:25pm.'},
