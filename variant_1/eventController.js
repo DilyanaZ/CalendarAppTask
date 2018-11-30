@@ -1,13 +1,8 @@
 $(function() {
 
-    const ENTER_KEY = 13;
-
-
     var settings = {};
     var events = [];
     var element = document.getElementById('caleandar');
-
-
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!when MIME type is JSON, jqueruy automatically parse it to Objects
     $.get('./events.json').then(function(events) {
@@ -24,8 +19,8 @@ $(function() {
         // { date: '2018-11-4', title: 'Tralala appointment at 3:25pm.'},
     ];
 
+    document.getElementById('eventList').style.display = "none";
     events.forEach(initialEvent => eventList.addEvent(initialEvent.date, initialEvent.title));
-
     //create initial events (just for testing)
     // var cal = caleandar(element, eventList.getEvents(), settings);
     var cal = caleandar(element, events, settings);
@@ -53,7 +48,7 @@ $(function() {
         caleandar(element, eventArray, settings);
         addListeners();
     });
-    //----------------------------------------------------------------
+
     function addListeners() {
         var days = document.getElementsByClassName('cld-day');
         for (var index = 0; index < days.length; index++) {
@@ -112,6 +107,9 @@ $(function() {
         li.innerHTML = '<input id="checkbox" type="checkbox" /> <span>' + date + '</span><span id="eventText">' + '  ' +
             value + '</span><span class ="remove">&times;Remove</span><span id="edit"">Edit</span>';
         $('#events').append(li);
+        var divElement = document.getElementById('showAllEvents');
+        document.getElementById('eventList').style.display = "inline-flex";
+        divElement.classList.add("mystyle");
         $('span.remove').on({
             mouseenter: function() {
                 $(this).css("background-color", "hotpink");
