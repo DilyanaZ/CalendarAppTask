@@ -64,7 +64,7 @@ $(function() {
         var days = document.getElementsByClassName('cld-day');
         for (var index = 0; index < days.length; index++) {
             days[index].addEventListener('click', function(event) {
-                event.stopPropagation();
+                // event.stopPropagation();
                 var year = cal.Selected.Year;
                 var month = cal.Selected.Month + 1;
                 var selectedDay = this.firstChild.innerText;
@@ -97,8 +97,21 @@ $(function() {
                         console.log('Event is from today' + selectedDay);
                     }
                 });
-            }, true);
+            }, false);
         }
+    }
+
+    function getEventsPreviosMonth() {
+        var svgElement = document.getElementById('prevArrow');
+        // var div = $('div.cld-rwd')
+        svgElement.addEventListener('click', function() {
+            console.log('HELLLLLLLLLL');
+            // var prevArrowDiv = $(this).closest('div.cld-main');
+            // console.log(prevArrowDiv);
+            // var ul = prevArrow.closest('ul.cld-day');
+            // console.log(ul);
+
+        });
     }
 
     function removeEvent(event) {
