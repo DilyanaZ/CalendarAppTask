@@ -18,15 +18,28 @@ $(function() {
     ];
 
     document.getElementById('eventList').style.display = "none";
-    events.forEach(initialEvent => eventList.addEvent(initialEvent.date, initialEvent.title));
+    //events.forEach(initialEvent => eventList.addEvent(initialEvent.date, initialEvent.title));
     //create initial events (just for testing)
-    // var cal = caleandar(element, eventList.getEvents(), settings);
+    //var cal = caleandar(element, eventList.getEvents(), settings);
     var cal = caleandar(element, events, settings);
     addListeners();
 
+    function currentDateInput() {
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+        var today = year + "-" + month + "-" + day;
+        $("#myDate").attr("value", today);
+    }
+    currentDateInput();
+
     $('div#editEvent').hide();
 
-    $('#addEvent').on('click', function() {
+    $('#addEvent').on('click', function(event) {
+        // event.preventDefault();
         var textField = document.getElementById('newEvent');
         var value = textField.value;
         var date = document.getElementById('myDate').value;
@@ -39,8 +52,8 @@ $(function() {
             return;
         };
         var id = eventList.addEvent(date, value);
-        textField.value = '';
         addEvent(id, date, value);
+        textField.value = '';
         var eventArray = eventList.getEvents();
         element.innerHTML = '';
         caleandar(element, eventArray, settings);
@@ -58,13 +71,12 @@ $(function() {
                 console.log(year);
                 console.log(month);
                 console.log(selectedDay);
-                swal('No events for today')
+                swal(selectedDay)
 
                 var date = new Date(year, month, selectedDay);
                 var eventArray = eventList.getEvents();
 
                 eventArray.forEach(function(createdEvent) {
-
                     if (createdEvent.Date.getDate() == selectedDay.substring(0, selectedDay.indexOf('\n')) &&
                         (createdEvent.Date.getMonth() + 1) == month &&
                         createdEvent.Date.getFullYear() == year) {
@@ -80,6 +92,7 @@ $(function() {
                                 imageAlt: 'Custom image',
                                 animation: false
                             })
+
                         }
                         console.log('Event is from today' + selectedDay);
                     }

@@ -1,5 +1,5 @@
 .cld-main {
-    width: 700px;
+    width: 800px;
 }
 
 .cld-main a {
@@ -78,7 +78,7 @@
     position: relative;
     margin: 0;
     padding: 5px;
-    height: 66px;
+    height: 80px;
     border: 1px solid #ddd;
     overflow-y: auto;
 }
@@ -86,11 +86,6 @@
 .cld-day.clickable:hover {
     cursor: pointer;
 }
-
-
-/* .cld-day.today{
-    border: 1px solid #7B00FF;
-  } */
 
 .cld-day.disableDay {
     opacity: 0.5;

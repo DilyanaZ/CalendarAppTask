@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Callendar tasks</title>
-    <link rel="stylesheet" href="./styles/reset.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- <script src="./node_modules/handlebars/dist/handlebars.min.js"></script> -->
-    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/theme3.css" />
     <link rel="stylesheet" href="./styles/style.css">
-
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="eventService.js"></script>
     <script src="eventController.js"></script>
 </head>
@@ -26,7 +25,6 @@
             <div id="animated-div">
                 Hello! Add all your events!
             </div>
-
         </header>
         <main>
             <div class="form-group row">
@@ -34,7 +32,6 @@
                     <div id="caleandar">
 
                     </div>
-
                 </div>
                 <div id="showAllEvents" class="col-sm-3">
                     <p id="eventList">Event list:</p>
@@ -48,7 +45,7 @@
                     </div>
                     <!-- <div></div> -->
                     <label for="dateLabel"> Chose new Date:</label>
-                    <input type="date" id="editedDate" value="2018-11-22">
+                    <input type="date" id="editedDate">
                     <label for="newEvent"> New Title:</label>
                     <input type="text" id="editedEvent">
                     <button type="submit" id="confirm" class="btn">Confirm</button>
@@ -61,15 +58,12 @@
                 </div>
                 <div id="addForm">
                     <label for="dateLabel"> Chose a Date:</label>
-                    <input type="date" id="myDate" value="2018-11-22">
+                    <input type="date" id="myDate">
                     <label for="newEvent">Title:</label>
                     <input type="text" id="newEvent">
                     <button type="submit" id="addEvent" class="btn">ADD Event</button>
-                    <!-- <a class="square_btn">ADD Event</a> -->
                 </div>
-
             </div>
-
         </main>
         <footer>
 

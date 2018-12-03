@@ -1,359 +1,383 @@
-@import url('https://fonts.googleapis.com/css?family=Merienda');
-html {
-    height: 100%;
-}
-
-body {
-    background-image: linear-gradient(to right top, #051437, #004370, #0079a1, #00b2c2, #12ebcf);
-    background-repeat: initial;
-    overflow: visible;
-    height: 100%;
-}
-
-div.container-fluid {
-    /* background-repeat: initial; */
-    height: 100%;
-    overflow: auto;
-    background-size: auto;
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-header h1 {
-    margin: 5px;
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    text-align: center;
-    vertical-align: -webkit-baseline-middle;
-}
-
-header {
-    margin-bottom: 5px;
-    height: 160px;
-    width: 100%;
-    background-color: #1fc8db;
-    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-    color: white;
-    opacity: 0.95;
-    vertical-align: -webkit-baseline-middle;
-    border-radius: 15px;
-}
-
-#animated-div {
-    color: white;
-    background-color: mediumslateblue;
-    font-family: Verdana, sans-serif;
-    font-size: 2em;
-    position: relative;
-    font-weight: bold;
-    width: 250px;
-    height: 160px;
-    padding: 10px;
-    margin-left: 80px;
-    /* margin-top: 30px; */
-    animation: animated-div 5s 1;
-    border-radius: 15px;
-    text-align: center;
-}
-
-@keyframes animated-div {
-    0% {
-        transform: rotate(0deg);
-        left: 0px;
+    @import url('https://fonts.googleapis.com/css?family=Merienda');
+    html {
+        height: 100%;
     }
-    25% {
-        transform: rotate(20deg);
-        left: 0px;
+    
+    body {
+        background-image: linear-gradient(to right top, #051437, #004370, #0079a1, #00b2c2, #12ebcf);
+        background-repeat: initial;
+        overflow: visible;
+        height: 100%;
     }
-    50% {
-        transform: rotate(0deg);
-        left: 700px;
+    
+    div.container-fluid {
+        /* background-repeat: initial; */
+        height: 100%;
+        overflow: auto;
+        background-size: auto;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
     }
-    55% {
-        transform: rotate(0deg);
-        left: 700px;
+    
+    header h1 {
+        margin: 5px;
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        text-align: center;
+        vertical-align: -webkit-baseline-middle;
     }
-    70% {
-        transform: rotate(0deg);
-        left: 700px;
-        background: #1ec7e6;
+    
+    header {
+        margin-bottom: 5px;
+        height: 160px;
+        width: 100%;
+        background-color: #1fc8db;
+        background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        color: white;
+        opacity: 0.95;
+        vertical-align: -webkit-baseline-middle;
+        border-radius: 15px;
     }
-    100% {
-        transform: rotate(-360deg);
-        left: 500px;
+    
+    #animated-div {
+        color: white;
+        background-color: mediumslateblue;
+        font-family: Verdana, sans-serif;
+        font-size: 2em;
+        position: relative;
+        font-weight: bold;
+        width: 250px;
+        height: 160px;
+        padding: 10px;
+        margin-left: 80px;
+        /* margin-top: 30px; */
+        animation: animated-div 5s 1;
+        border-radius: 15px;
+        text-align: center;
     }
-}
-
-.form-group {
-    padding-left: 40px;
-    margin-top: 10px;
-    font-size: 1.3em;
-    box-sizing: border-box;
-    align-content: center;
-    margin-left: 2px;
-    margin-right: 2px;
-    /* text-align: center; */
-}
-
-div.wrapper {
-    box-sizing: border-box;
-    margin-left: 22px;
-    border: 10px solid white;
-    border-radius: 15px;
-    padding: 5px;
-    border-style: outset;
-}
-
-div#caleandar {
-    display: table;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 30px;
-    border-radius: 30px;
-    align-content: center;
-}
-
-div#showAllEvents {
-    box-sizing: border-box;
-    margin-left: 22px;
-    margin-right: 22px;
-    /* position: initial; */
-    /* box-sizing: content-box; */
-}
-
-div#showAllEvents>ul {
-    text-align: left;
-}
-
-div.mystyle {
-    background-color: mediumslateblue;
-    align-items: center;
-    border-radius: 30px;
-}
-
-div#addNewEvent {
-    /* float: left; */
-    width: 50%;
-    height: 200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    align-content: center;
-    border-radius: 30px;
-    background-color: cornflowerblue;
-}
-
-div#editEvent {
-    /* float: left; */
-    background-color: mediumpurple;
-    align-items: center;
-    border-radius: 30px;
-    font-size: 1.2;
-    box-sizing: border-box;
-    font-size: 1.2;
-}
-
-div#addNewEvent p {
-    padding-top: 30px;
-    color: white;
-    font-size: 2.5em;
-    text-shadow: 4px 4px 6px black;
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-p#eventList,
-div#editEvent p {
-    text-align: center;
-    font-size: 2em;
-    color: white;
-    text-shadow: 4px 4px 6px black;
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-
-/* div#editEvent p {
-    color: hotpink;
-    text-shadow: 3px 3px 5px blanchedalmond;
-    font-size: 2em;
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-} */
-
-
-/* 
-.form-group input {
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 1.5em;
-    text-align: center;
-} */
-
-button#addEvent,
-button#confirm,
-button#cancel {
-    color: #051437;
-    font-size: 1.3em;
-    border-color: 1px solid #051437;
-    border-radius: 15px;
-    font-weight: bold;
-    padding: 2px;
-    margin-left: 10px;
-}
-
-button#addEvent {
-    height: 50px;
-    padding: 6px;
-    font-size: 1.3em;
-    margin-bottom: 6px;
-    background: rgb(199, 232, 248);
-    color: #799dec;
-    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
-    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2);
-    border-bottom: solid 2px #118e9e;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-button#addEvent:hover {
-    font-size: 1.4em;
-    box-shadow: inset 2px 2px 2px rgba(163, 50, 228, 0.2);
-    text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
-    color: solid 2px rgb(163, 50, 228);
-}
-
-div#editEvent>button#confirm,
-button#cancel {
-    font-size: 1.2em;
-    margin-top: 30px;
-}
-
-div#editEvent>button#confirm {
-    margin-left: 140px;
-}
-
-div#addForm {
-    align-content: center;
-}
-
-
-/* 
+    
+    @keyframes animated-div {
+        0% {
+            transform: rotate(0deg);
+            left: 0px;
+        }
+        25% {
+            transform: rotate(20deg);
+            left: 0px;
+        }
+        50% {
+            transform: rotate(0deg);
+            left: 700px;
+        }
+        55% {
+            transform: rotate(0deg);
+            left: 700px;
+        }
+        70% {
+            transform: rotate(0deg);
+            left: 700px;
+            background: #1ec7e6;
+        }
+        100% {
+            transform: rotate(-360deg);
+            left: 500px;
+        }
+    }
+    
+    .form-group {
+        padding-left: 40px;
+        margin-top: 10px;
+        font-size: 1.3em;
+        box-sizing: border-box;
+        align-content: center;
+        margin-left: 2px;
+        margin-right: 2px;
+        /* text-align: center; */
+    }
+    
+    div.wrapper {
+        box-sizing: border-box;
+        /* margin-left: 22px; */
+        border: 3px solid white;
+        border-radius: 15px;
+        padding: 5px;
+        border-style: outset;
+        width: 100%;
+        text-align: center;
+    }
+    
+    div#caleandar {
+        /* display: table; */
+        display: inline-block;
+        box-sizing: border-box;
+        /* margin: 0 auto; */
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 30px;
+        border-radius: 30px;
+        align-content: center;
+        max-width: 100%;
+    }
+    
+    div#showAllEvents {
+        box-sizing: border-box;
+        margin-left: 22px;
+        margin-right: 22px;
+        /* position: initial; */
+        /* box-sizing: content-box; */
+    }
+    
+    div#showAllEvents>ul {
+        text-align: left;
+    }
+    
+    div.mystyle {
+        background-color: lightblue;
+        align-items: center;
+        border-radius: 30px;
+    }
+    
+    div#addNewEvent {
+        /* float: left; */
+        width: 50%;
+        height: 200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        align-content: center;
+        border-radius: 30px;
+        background-color: cornflowerblue;
+        max-width: 100%;
+    }
+    
+    div#editEvent {
+        background-color: lightsteelblue;
+        align-items: center;
+        border-radius: 30px;
+        box-sizing: border-box;
+        height: 70%;
+        vertical-align: middle;
+    }
+    
+    div#addNewEvent p {
+        padding-top: 30px;
+        color: white;
+        font-size: 2.5em;
+        text-shadow: 4px 4px 6px black;
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+    
+    p#eventList,
+    div#editEvent p {
+        text-align: center;
+        font-size: 2em;
+        color: white;
+        text-shadow: 4px 4px 6px black;
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+    
+    div#editEvent input {
+        font-size: 1.5em;
+    }
+    
+    button#addEvent {
+        color: #051437;
+        font-size: 1.3em;
+        border-color: 1px solid #051437;
+        border-radius: 15px;
+        font-weight: bold;
+        padding: 2px;
+        margin-left: 10px;
+    }
+    
+    button#confirm,
+    button#cancel {
+        color: #051437;
+        font-size: 1.3em;
+        border: 2px solid #0079a1;
+        border-radius: 15px;
+        font-weight: bold;
+        padding: 2px;
+        margin-left: 10px;
+        border-style: outset;
+        margin-bottom: 20px;
+    }
+    
+    button#confirm:hover,
+    button#cancel:hover {
+        color: rgb(199, 232, 248);
+        background: #1fc8db;
+    }
+    
+    button#addEvent {
+        height: 50px;
+        padding: 6px;
+        font-size: 1.3em;
+        margin-bottom: 6px;
+        background: rgb(199, 232, 248);
+        color: #799dec;
+        text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2);
+        border-bottom: solid 2px #118e9e;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+    
+    button#addEvent:hover {
+        font-size: 1.4em;
+        box-shadow: inset 2px 2px 2px rgba(163, 50, 228, 0.2);
+        text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
+        color: solid 2px rgb(163, 50, 228);
+    }
+    
+    div#editEvent>button#confirm,
+    button#cancel {
+        font-size: 1.2em;
+        margin-top: 30px;
+    }
+    
+    div#editEvent>button#confirm {
+        margin-left: 140px;
+    }
+    
+    div#addForm {
+        align-content: center;
+    }
+    /* 
 button:hover {
     background-color: hotpink;
     color: #7B00FF;
     text-shadow: 3px 3px 5px white;
     cursor: pointer;
 } */
-
-#myDate,
-#editedDate,
-#newEvent {
-    margin-left: 5px;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 15px;
-    font-size: 1.3em;
-}
-
-label {
-    text-transform: uppercase;
-    padding: 8px 5px;
-    text-shadow: 3px 3px 5px #4a26eb;
-    font-size: 1.6em;
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #061f30;
-    font-weight: bolder;
-    margin-right: 5px;
-}
-
-div#editEvent label {
-    font-size: 1.2em;
-}
-
-div#editEvent input {
-    font-size: 0.8em;
-}
-
-input#newEvent,
-input#editedEvent {
-    width: 300px;
-    /* margin: 5px; */
-    padding: 6px;
-    border-radius: 15px;
-}
-
-li {
-    color: white;
-    text-decoration: none;
-    margin-top: 10px;
-    align-items: center;
-    padding: 5px;
-}
-
-span {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-span.remove,
-span#edit,
-span#eventText {
-    color: red;
-    border-radius: 1px solid red;
-    padding: 4px;
-    font-size: 1.2em;
-    background-color: antiquewhite;
-    width: 100px;
-    height: 40px;
-    vertical-align: middle;
-    width: 100%;
-    text-align: center;
-    border-radius: 12px;
-    align-content: center;
-}
-
-span#edit {
-    color: #051437;
-}
-
-span#eventText {
-    font-size: 1.2em;
-    color: #7B00FF;
-    width: 100px;
-    height: 30px;
-    background-color: antiquewhite;
-    border-radius: 5px;
-}
-
-.remove:hover {
-    background-color: #7B00FF;
-}
-
-button#removeEvent {
-    height: 20px;
-    box-sizing: border-box;
-}
-
-div.cld-main {
-    box-sizing: border-box;
-    margin-right: 10px;
-    text-align: center;
-}
-
-.cld-main a {
-    color: #12ebcf;
-    background-color: antiquewhite;
-    font-size: 1.5em;
-}
-
-li.cld-label {
-    margin-right: 8px;
-}
-
-li.cld-label:hover {
-    cursor: pointer;
-    border: 1px solid #7B00FF;
-    background-color: #666;
-}
-
-li.cld-day {
-    height: 90px;
-}
+    
+    #myDate,
+    #editedDate,
+    #newEvent {
+        margin-left: 5px;
+        margin-right: 10px;
+        /* padding: 3px; */
+        border-radius: 15px;
+        font-size: 1.3em;
+    }
+    
+    label {
+        text-transform: uppercase;
+        padding: 8px 5px;
+        text-shadow: 4px 4px 6px white;
+        font-size: 1.6em;
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        color: #061f30;
+        font-weight: bolder;
+        margin-right: 5px;
+    }
+    
+    div#editEvent label {
+        font-size: 1.1em;
+        color: #061f30;
+        text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    }
+    
+    div#editEvent input {
+        font-size: 1.1em;
+        padding: 2px;
+        width: 250px;
+        border-radius: 15px;
+    }
+    
+    input#newEvent {
+        width: 300px;
+        /* margin: 5px; */
+        padding: 6px;
+        border-radius: 15px;
+    }
+    
+    li {
+        color: white;
+        text-decoration: none;
+        margin-top: 10px;
+        align-items: center;
+        padding: 5px;
+    }
+    
+    span {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    span.remove,
+    span#edit,
+    span#eventText {
+        color: red;
+        border-radius: 1px solid red;
+        padding: 4px;
+        font-size: 1.2em;
+        background-color: white;
+        width: 100px;
+        height: 40px;
+        vertical-align: middle;
+        width: 100%;
+        text-align: center;
+        border-radius: 12px;
+        align-content: center;
+    }
+    
+    span#edit {
+        color: #051437;
+    }
+    
+    span#eventText {
+        font-size: 1.2em;
+        color: #7B00FF;
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    
+    .remove:hover {
+        background-color: #7B00FF;
+    }
+    
+    button#removeEvent {
+        height: 20px;
+        box-sizing: border-box;
+    }
+    
+    div.cld-main {
+        box-sizing: border-box;
+        margin-right: 10px;
+        text-align: center;
+    }
+    
+    div#caleandar ul {
+        display: table;
+        width: 100%;
+        text-align: center;
+    }
+    
+    div#caleandar ul>li {
+        display: table-cell;
+    }
+    
+    .cld-main a {
+        color: #12ebcf;
+        background-color: antiquewhite;
+        font-size: 1.5em;
+        display: table-cell;
+    }
+    
+    li.cld-label {
+        margin-right: 8px;
+        display: table-cell;
+    }
+    
+    li.cld-label:hover {
+        cursor: pointer;
+        border: 1px solid #7B00FF;
+        background-color: #666;
+    }
+    
+    li.cld-day {
+        height: 90px;
+        display: table-cell;
+    }
